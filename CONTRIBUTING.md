@@ -30,3 +30,10 @@ Guía para colaborar y realizar pull requests:
 * `feat: …` Es para cambios medianos. Aumentará la versión de la característica, ejemplo. 1.2.3 → 1.3.0
 
 * `BREAKING CHANGE: …` Es para cambios grandes. Estos cambios romperán la compatibilidad con versiones anteriores. Aumentará la versión del BREAKING CHANGE, e.g. 1.2.3 → 2.0.0
+
+## Añade y Confima Tus Cambios
+git add .
+git commit -m "descripcion del commit"
+
+## Hcer push a tu FORK
+git push origin tu-rama-de-contribucion
