@@ -1,0 +1,44 @@
+CREE MI RAMA DESPUESDE HACER UN FORK AL REPOSITORIO
+git checkout -b alonso
+-----------------------------------------------------
+INICIALICE MI PROYECTO DE NODE.JS
+npm init -y
+-----------------------------------------------------
+INSTALE PRISMA CLI
+npm install prisma --save-dev
+-----------------------------------------------------
+INSTALE EL PROVEDOR DE SQL LITE EN PRISMA
+npx prisma init –-datasource-provider SQLite
+-----------------------------------------------------
+SE CREO UN ESQUEMA DE BASE EN prisma/schema.prisma
+
+model Usuario {
+rut String @id
+nombres String
+apellidos String
+correo String
+clave String
+area String
+cargo String
+tipHorario String
+empresa String
+asistencia Int
+qrCode String
+pin Int
+}
+----------------------------------------------------
+SE ELIMINIO EL ARCHIVO LLAMADO pnpm-lock.yaml 
+SE HIZO PARA NIO CAUSAR ERRORES AL MOMENTO DE 
+HACER LA MIGRACION EN PRISMA
+----------------------------------------------------
+EJECUTE LA MIGRACION DE NOMBRE inicial
+npx prisma migrate dev
+----------------------------------------------------
+EN ESTA RUTA ESTA LA MIGRACION CREADA
+prisma/migrations/20240913153947_init/migration.sql 
+----------------------------------------------------
+LEVANTE LA INTERFAS DE USUARIO DE PRISMA
+npx prisma studio
+----------------------------------------------------
+
+
