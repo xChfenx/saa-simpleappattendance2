@@ -1,0 +1,10 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: self-end;
+}
+
+.button > p {
+  font-size: 2rem;
+}
