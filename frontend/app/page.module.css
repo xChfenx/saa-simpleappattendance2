@@ -1,0 +1,35 @@
+/*
+  --white: #F9F9F9;
+  --cream: #EDF1E9;
+  --black: #333333;
+  --gray: #76817F;
+*/
+
+.layout {
+  background-color: #F9F9F9;
+}
+
+.body {
+  display: grid;
+  grid-template-rows: 1fr 11fr;
+  height: 100vh;
+}
+
+.header {
+  background-color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 4rem;
+}
+
+.header > p{
+  color: #F9F9F9;
+  font-size: 1.9rem;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

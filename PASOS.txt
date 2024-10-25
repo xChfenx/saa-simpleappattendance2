@@ -1,0 +1,70 @@
+CREE MI RAMA DESPUESDE HACER UN FORK AL REPOSITORIO
+git checkout -b alonso
+-----------------------------------------------------
+INICIALICE MI PROYECTO DE NODE.JS
+npm init -y
+-----------------------------------------------------
+INSTALE PRISMA CLI
+npm install prisma --save-dev
+-----------------------------------------------------
+INSTALE EL PROVEDOR DE SQL LITE EN PRISMA
+npx prisma init –-datasource-provider SQLite
+-----------------------------------------------------
+SE CREO UN ESQUEMA DE BASE EN prisma/schema.prisma
+
+model Usuario {
+rut String @id
+nombres String
+apellidos String
+correo String
+clave String
+area String
+cargo String
+tipHorario String
+empresa String
+asistencia Int
+qrCode String
+pin Int
+}
+----------------------------------------------------
+SE ELIMINIO EL ARCHIVO LLAMADO pnpm-lock.yaml 
+SE HIZO PARA NIO CAUSAR ERRORES AL MOMENTO DE 
+HACER LA MIGRACION EN PRISMA
+----------------------------------------------------
+EJECUTE LA MIGRACION DE NOMBRE inicial
+npx prisma migrate dev
+----------------------------------------------------
+EN ESTA RUTA ESTA LA MIGRACION CREADA
+prisma/migrations/20240913153947_init/migration.sql 
+----------------------------------------------------
+LEVANTE LA INTERFAS DE USUARIO DE PRISMA
+npx prisma studio
+----------------------------------------------------
+INSTALACION DE NEXT.JS Y REACT
+npx create-next-app@latest frontend
+
+DURANTE LA INSTALCION ME PIDIO CIERTA CONFIGURACION 
+A LA CUAL FUI APRETANDO AL OPCION DE "YES"
+
+Would you like to use TypeScript? … No / Yes
+✔ Would you like to use ESLint? … No / Yes
+✔ Would you like to use Tailwind CSS? … No / Yes
+✔ Would you like your code inside a `src/` directory? … No / Yes
+✔ Would you like to use App Router? (recommended) … No / Yes
+✔ Would you like to use Turbopack for next dev? … No / Yes
+✔ Would you like to customize the import alias (@/* by default)? … No / Yes
+✔ What import alias would you like configured? … @/*
+Creating a new Next.js app in /workspaces/saa-simpleappattendance/frontend.
+----------------------------------------------------
+CREACION DE CARPETAS NECESARIAS RUTAS EN UN PROYECTO REACT
+mkdir -p src/component
+mkdir -p src/layouts
+mkdir -p src/pages
+mkdir -p src/styles
+
+touch detalle.tsx
+touch ingresar.tsx
+touch marcaje-clave.tsx
+touch marcaje-qr.tsx
+touch reporte.tsx
+touch welcome.tsx
