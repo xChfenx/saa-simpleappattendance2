@@ -31,9 +31,13 @@ Guía para colaborar y realizar pull requests:
 
 * `BREAKING CHANGE: …` Es para cambios grandes. Estos cambios romperán la compatibilidad con versiones anteriores. Aumentará la versión del BREAKING CHANGE, e.g. 1.2.3 → 2.0.0
 
-## Añade y Confima Tus Cambios
-git add .
-git commit -m "descripcion del commit"
+* `docs: …` Es para cambios en documentos como README.md, CONTRIBUTING.md o cualquier otro.
 
-## Hcer push a tu FORK
-git push origin tu-rama-de-contribucion
+* `refactor: …` Es para cambios como comentarios, eliminación de líneas de código sin usar, etc.
+
+## Añade y confirma Tus cambios
+* git add .
+* git commit -m "descripcion del commit"
+
+## Haz push a tu fork
+* git push origin tu-rama-de-contribucion
