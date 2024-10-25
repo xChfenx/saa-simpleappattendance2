@@ -14,7 +14,7 @@ Styles for screens smaller or equal than 768px width
   .registration_header {
     height: 5rem;
   }
-  
+
   .registration_header > p {
     font-size: 2rem;
   }
@@ -30,7 +30,7 @@ Styles for screens smaller or equal than 768px width
 @media (min-width: 426px){
 
   .registration_body {
-    width: 25rem;
+    width: 30rem;
     height: 30rem
   }
 
