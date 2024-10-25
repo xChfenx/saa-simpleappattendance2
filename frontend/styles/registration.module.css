@@ -44,7 +44,7 @@
   }
 
   .header {
-    height: 6rem;
+    height: 6.5rem;
   }
 }
 
@@ -93,6 +93,9 @@
   height: 0.2rem;
   border: none;
   background-color: #dae0df;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  margin-top: 1.3rem;
 }
 
 .registration_content > p {
@@ -100,4 +103,9 @@
   margin-bottom: 1rem;
   font-weight: bold;
   color: #333333;
+}
+
+.horizontal_line {
+  color: #333333;
+  border-width: 3rem;
 }

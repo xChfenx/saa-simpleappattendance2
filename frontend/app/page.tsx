@@ -18,7 +18,7 @@ export default function Home(){
             <div className={registration_styles.qr_icon}>
               <QRScannerIcon />
             </div>
-            <hr />
+            <hr className={registration_styles.horizontal_line}/>
           </div>
           <div className={registration_styles.buttons_container}>
             <Button button={{
