@@ -3,8 +3,9 @@
   align-items: center;
   justify-content: center;
   align-self: self-end;
+  width: 100%;
 }
 
 .button > p {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }

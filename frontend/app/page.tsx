@@ -11,10 +11,13 @@ export default function Home(){
         <p>Iniciar sesión</p>
       </header>
       <main className={page_styles.main}>
+        
         <Registration title='Marcaje' >
           <div className={registration_styles.registration_content}>
             <p>Acerca tu tarjeta al escaner</p>
-            <QRScannerIcon/>
+            <div className={registration_styles.qr_icon}>
+              <QRScannerIcon />
+            </div>
             <hr />
           </div>
           <div className={registration_styles.buttons_container}>
@@ -22,8 +25,7 @@ export default function Home(){
             title: 'Usar PIN',
             color: '#333333',
             background: '#EBEBEB',
-            height: '5rem',
-            width: '20rem',
+            height: '4rem'
             }}/>
           </div>
         </Registration>
