@@ -8,6 +8,7 @@ type Button = {
   color: string;
   background: string;
   height: string;
+  width: string;
 }
 
 export default function Button({button}: {button: Button}){
@@ -16,6 +17,7 @@ export default function Button({button}: {button: Button}){
     <button className={styles.button} 
       style={{
         height: button.height,
+        width: button.width,
         backgroundColor: button.background,
         border: '5rem'
     }}>
