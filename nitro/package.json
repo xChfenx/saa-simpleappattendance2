@@ -8,8 +8,5 @@
   },
   "devDependencies": {
     "nitropack": "latest"
-  },
-  "dependencies": {
-    "valibot": "^0.42.1"
   }
 }
