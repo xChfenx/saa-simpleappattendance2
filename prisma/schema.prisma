@@ -20,7 +20,7 @@ area String
 cargo String
 tipHorario String
 empresa String
-asistencia DateTime?
+asistencia String
 qrCode String
 pin Int
 }

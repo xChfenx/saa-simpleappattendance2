@@ -9,7 +9,7 @@ CREATE TABLE "Usuario" (
     "cargo" TEXT NOT NULL,
     "tipHorario" TEXT NOT NULL,
     "empresa" TEXT NOT NULL,
-    "asistencia" INTEGER NOT NULL,
+    "asistencia" TEXT NOT NULL,
     "qrCode" TEXT NOT NULL,
     "pin" INTEGER NOT NULL
 );
