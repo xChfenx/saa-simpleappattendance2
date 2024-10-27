@@ -18,7 +18,7 @@ correo String
 clave String
 area String
 cargo String
-tipHorario String
+tipoHorario String
 empresa String
 asistencia String
 qrCode String

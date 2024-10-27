@@ -7,7 +7,7 @@ CREATE TABLE "Usuario" (
     "clave" TEXT NOT NULL,
     "area" TEXT NOT NULL,
     "cargo" TEXT NOT NULL,
-    "tipHorario" TEXT NOT NULL,
+    "tipoHorario" TEXT NOT NULL,
     "empresa" TEXT NOT NULL,
     "asistencia" TEXT NOT NULL,
     "qrCode" TEXT NOT NULL,
