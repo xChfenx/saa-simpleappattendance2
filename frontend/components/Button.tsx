@@ -11,7 +11,7 @@ type Button = {
   width: string;
 };
 
-export default function Button({ button_style, onClickEvent}: {button_style: Button; onClickEvent: any; }) {
+export default function Button({ button_style, onClickEvent, type}: {button_style: Button; onClickEvent: any; type: any}) {
   return (
     <button
       onClick={onClickEvent}
@@ -22,6 +22,7 @@ export default function Button({ button_style, onClickEvent}: {button_style: But
         backgroundColor: button_style.background,
         border: "5rem",
       }}
+      type={type}
     >
       <p style={{ color: button_style.color }}>{button_style.title}</p>
     </button>
