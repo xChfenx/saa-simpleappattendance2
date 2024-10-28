@@ -11,9 +11,10 @@ type Button = {
   width: string;
 };
 
-export default function Button({ button_style }: { button_style: Button }) {
+export default function Button({ button_style, onClickEvent}: {button_style: Button; onClickEvent: any; }) {
   return (
     <button
+      onClick={onClickEvent}
       className={styles.button}
       style={{
         height: button_style.height,
