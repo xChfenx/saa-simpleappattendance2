@@ -30,8 +30,8 @@ export default function Home() {
         {isLogin ? (
           <Registration title="Ingresar">
           <div className={login_content_styles.registration_content}>
-            <Input label="Correo" placeholder="tucorreo@gmail.com" />
-            <Input label="Contraseña" placeholder="* * * * * * *" />
+            <Input required={true} inputType="email" label="Correo" placeholder="tucorreo@gmail.com" />
+            <Input required={true} inputType="password" label="Contraseña" placeholder="* * * * * * *" />
             <hr />
             <div className={login_content_styles.buttons_container}>
               <Button
