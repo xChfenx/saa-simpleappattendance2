@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from "react";
 import styles from "../styles/button.module.css";
@@ -9,21 +9,22 @@ type Button = {
   background: string;
   height: string;
   width: string;
-}
+};
 
-export default function Button({button}: {button: Button}){
-
+export default function Button({ button_style, onClickEvent, type}: {button_style: Button; onClickEvent: any; type: any}) {
   return (
-    <button className={styles.button} 
+    <button
+      onClick={onClickEvent}
+      className={styles.button}
       style={{
-        height: button.height,
-        width: button.width,
-        backgroundColor: button.background,
-        border: '5rem'
-    }}>
-      <p style={{color: button.color}}>
-        {button.title}
-      </p>
+        height: button_style.height,
+        width: button_style.width,
+        backgroundColor: button_style.background,
+        border: "5rem",
+      }}
+      type={type}
+    >
+      <p style={{ color: button_style.color }}>{button_style.title}</p>
     </button>
   );
 }
