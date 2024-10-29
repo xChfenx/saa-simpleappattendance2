@@ -1,20 +1,14 @@
 import 'bulma/css/bulma.min.css';
-import dashboard from '@/app/dashboard/page.module.css';
 
-import { fetchUsers } from '../lib/data';
+import { fetchUsers } from '../utils/data';
 
 export default async function Dashboard(){
 
-  const users = await (await fetchUsers()).json();
+  const users = await fetchUsers();
 
   return (
     <>
-      <nav className={`navbar is-fixed-top ${dashboard.navbar}`}>
-        <div className={'navbar-brand'}>
-          <h3 className={'title is-3 has-text-grey-lighter'}>Bienvenido, {users[0].nombres}</h3>
-        </div>
-        
-      </nav>
+      Bienvenido, {users[0].nombres}        
     </>
   ); 
 }

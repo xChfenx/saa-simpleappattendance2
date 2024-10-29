@@ -1,6 +1,12 @@
 export async function fetchUsers(){
   try {
-    const data = await fetch('http://localhost:3000/api/users');
+    const data = await (await fetch('http://localhost:3000/api/users', {
+      headers: {
+        'Content-Type': 'application/json',
+      }
+
+    })).json();
+
     return data;
   }
 
