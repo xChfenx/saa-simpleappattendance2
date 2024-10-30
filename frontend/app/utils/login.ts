@@ -14,7 +14,8 @@ export async function login(formData: FormData){
     contrasena: formData.get('contrasena'),
   }
 
-  if(user.contrasena === data[0].clave){
+  if(user.contrasena === data[0].clave 
+    && user.correo === data[0].correo){
     redirect('/dashboard');
   }  
 }
