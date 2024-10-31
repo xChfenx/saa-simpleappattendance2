@@ -13,6 +13,7 @@ import Form from 'next/form';
 
 export default function Home() {
   const [isLogin, setIsLogin] = useState(false);
+  const [usePin, setUsePin] = useState(false);
 
   return (
     <div className={home_styles.full_content}>
@@ -56,7 +57,7 @@ export default function Home() {
                       title: "Iniciar sesión",
                       color: "#EDF1E9",
                       background: "#76817F",
-                      height: "4rem",
+                      height: "3.5rem",
                       width: "10rem",
                     }}
                     type="submit"
@@ -68,7 +69,7 @@ export default function Home() {
                       title: "Cancelar",
                       color: "#333333",
                       background: "#EBEBEB",
-                      height: "4rem",
+                      height: "3.5rem",
                       width: "13rem",
                     }}
                     type="button"
@@ -78,26 +79,72 @@ export default function Home() {
             </Registration>
           </Form>
         ) : (
-          <Registration title="Marcaje">
-            <div className={registration_content_styles.registration_content}>
-              <p>Acerca tu tarjeta al escaner</p>
-              <div className={registration_content_styles.qr_icon}>
-                <QRScannerIcon />
+          usePin ? 
+          (
+              <Registration title="Marcaje">
+                <div className={login_content_styles.registration_content}>
+                  <Input label="RUT" input={{
+                    name: "rut",
+                    required: true,
+                    placeholder: "123456789",
+                    type: "text"
+                  }} />
+                  <Input label="PIN" input={{
+                    name: "pin",
+                    required: true,
+                    placeholder: "* * * *",
+                    type: "password"
+                  }}/>
+                  <hr />
+                  <div className={login_content_styles.buttons_container}>
+                    <Button
+                      onClickEvent={() => setUsePin(false)}
+                      button_style={{
+                        title: "Marcar",
+                        color: "#EBEBEB",
+                        background: "#76817F",
+                        height: "3.5rem",
+                        width: "35%",
+                      }}
+                      type="submit"
+                    />
+                    <Button
+                      onClickEvent={() => setUsePin(false)}
+                      button_style={{
+                        title: "Cancelar",
+                        color: "#333333",
+                        background: "#EBEBEB",
+                        height: "3.5rem",
+                        width: "50%",
+                      }}
+                      type="button"
+                    />
+                  </div>
+                </div>
+              </Registration>
+          ) :
+          (
+            <Registration title="Marcaje">
+              <div className={registration_content_styles.registration_content}>
+                <p>Acerca tu tarjeta al escaner</p>
+                <div className={registration_content_styles.qr_icon}>
+                  <QRScannerIcon />
+                </div>
+                <hr />
+                <Button
+                  onClickEvent={() => setUsePin(true)}
+                  button_style={{
+                    title: "Usar PIN",
+                    color: "#333333",
+                    background: "#EBEBEB",
+                    height: "3.5rem",
+                    width: "100%",
+                  }}
+                  type="button"
+                />
               </div>
-              <hr />
-              <Button
-                onClickEvent={null}
-                button_style={{
-                  title: "Usar PIN",
-                  color: "#333333",
-                  background: "#EBEBEB",
-                  height: "4rem",
-                  width: "100%",
-                }}
-                type="button"
-              />
-            </div>
-          </Registration>
+            </Registration>
+          )
         )}
       
       </main>
