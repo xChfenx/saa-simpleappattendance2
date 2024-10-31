@@ -26,6 +26,7 @@ export default function Home() {
                 height: "4rem",
                 width: "10%",
               }}
+              type="button"
             />
       </header>
       <main className={home_styles.full_content_main}>
