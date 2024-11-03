@@ -3,12 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {},
-  "dependencies": {
-    "@prisma/client": "~5.21.1"
-  },
   "devDependencies": {
     "@types/node": "~20",
-    "prisma": "~5.21.1",
     "typescript": "~5"
   },
   "description": "Proyecto final de título para la Ingeniería en Computación e Informática",
