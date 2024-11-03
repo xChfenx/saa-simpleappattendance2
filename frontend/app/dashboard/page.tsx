@@ -55,7 +55,7 @@ export default async function Dashboard(){
                   <td>{users[0].correo}</td>
                   <td>{users[0].area}</td>
                   <td>{users[0].cargo}</td>
-                  <td>{users[0].tipHorario}</td>
+                  <td>{users[0].tipoHorario}</td>
                   <td>{users[0].empresa}</td>
                   <td>{users[0].asistencia}</td>
                 </tr>
