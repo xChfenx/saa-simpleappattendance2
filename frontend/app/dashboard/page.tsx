@@ -30,7 +30,7 @@ export default async function Dashboard(){
                     <Link href="#" className="button is-medium is-outlined">Reportes</Link>
                   </div>
                   <div className="block">
-                    <Link href="#" className="button is-medium">Crear usuario</Link>
+                    <Link href="/create" className="button is-medium">Crear usuario</Link>
                   </div>
                 </div>
               </div>
