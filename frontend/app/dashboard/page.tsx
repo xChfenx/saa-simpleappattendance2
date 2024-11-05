@@ -2,58 +2,87 @@ import 'bulma/css/bulma.min.css';
 import dashboard_styles from '@/app/dashboard/page.module.css';
 import { fetchUsers } from '../utils/data';
 import Link from 'next/link';
+import { CalendarIcon } from '@/components/icons/CalendarIcon';
+import { SheetIcon } from '@/components/icons/SheetIcon';
 
 export default async function Dashboard(){
 
   const users = await fetchUsers();
+  const user = users[0];
 
   return (
     <>
       <nav className={`navbar ${dashboard_styles.nav}`}>
-
         {/* Mensaje de bienvenida */}
-          <div className="navbar-item is-expanded">
-            <div className='container has-text-centered'>
-              <p className='title has-text-white'>{`Bienvenido, ${users[0].nombres}`}</p>
-            </div>
+        <div className="navbar-item is-expanded">
+          <div className='container has-text-centered'>
+            <p className='title has-text-white'>{`Bienvenido, ${user.nombres}`}</p>
           </div>
-        </nav>
+        </div>
+
+        <div className="navbar-end">
+          <div className="navbar-item">
+            <p className='subtitle has-text-white'>{`${user.area}`}</p>
+          </div>
+        </div>
+      </nav>
 
       <div className='columns'>
+        {/* Botones de Reportes y Crear usuario */}
         <div className='column is-2'>
-          {/* Botones de Reportes y Crear usuario */}
           <section className={`hero is-fullheight-with-navbar ${dashboard_styles.hero}`}>
             <div className="hero-body">
               <div className="container">
-                <div className="buttons">
                   <div className="block">
-                    <Link href="#" className="button is-medium is-outlined">Reportes</Link>
+                    <Link href="/dashboard/create" className="button">Crear usuario</Link>
                   </div>
-                  <div className="block">
-                    <Link href="/dashboard/create" className="button is-medium">Crear usuario</Link>
-                  </div>
-                </div>
               </div>
             </div>
 
             {/* Botón de cerrar sesión */}
             <div className="hero-foot">
-              <nav className="level">
-                <div className="level-item">
-                  <div className="buttons">
-                    <Link href="/" className="button is-light">
-                      <strong>Cerrar sesión</strong>
-                    </Link>
-                  </div>
-                </div>
-              </nav>
+              <div className="section">
+              <div className="container is-fullwidth">
+                <Link href="/" className="button is-light">
+                  <strong>Cerrar sesión</strong>
+                </Link>
+              </div>
+              </div>
             </div>
             
           </section>
         </div>
+        <div className='column has-background-white'>
+          
+            <div className="columns">
+              <div className="column is-3">
+                  <div className="field mt-6">
+                    {/* Buscar trabajador */}
+                    <label className="label is-medium">Buscar trabajador</label>
+                    <div className="control">
+                      <input className="input" type="text" placeholder="Juan Pérez" />
+                    </div>
+                  </div>
+                  {/* Filtrar por fecha */}
+                  <div className="field mt-5">
+                    <span className="icon-text">
+                      <span className='label is-medium'>Filtrar por fecha</span>
+                      <span className='icon is-medium'><CalendarIcon /></span>
+                    </span>
+                  </div>
+              </div>
+              <div className="column"></div>
+            </div>
+            <div className="columns mt-5">
+              <div className="column is-6">
+                {/* Nombre de trabajador actual */}
+                <h2 className="subtitle"><strong>{`${user.nombres} ${user.apellidos}`}</strong>{`(${user.rut})`}</h2>
+              </div>
+              <div className="column"></div>
+              <div className="column is-1"><SheetIcon width="3rem" height="3rem"/></div>
+            </div>
 
-        {/* Tabla de usuarios */}
-        <div className='column is-align-items-stretch'>
+          {/* Tabla de usuarios */} 
           <table className='table is-hoverable is-fullwidth'>
             <thead>
               <tr>
