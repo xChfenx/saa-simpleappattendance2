@@ -30,27 +30,31 @@ export default async function Dashboard(){
       <div className='columns'>
         {/* Botones de Reportes y Crear usuario */}
         <div className='column is-2'>
-          <section className={`hero is-fullheight-with-navbar ${dashboard_styles.hero}`}>
-            <div className="hero-body">
-              <div className="container">
-                  <div className="block">
-                    <Link href="/dashboard/create" className="button">Enrolar usuario</Link>
+          <div className="columns has-background-white">
+            <div className="column is-10">
+              <section className={`hero is-fullheight-with-navbar ${dashboard_styles.hero}`}>
+                <div className="hero-body">
+                  <div className="container">
+                      <div className="block">
+                        <Link href="/dashboard/create" className="button">Enrolar usuario</Link>
+                      </div>
                   </div>
-              </div>
-            </div>
+                </div>
 
-            {/* Botón de cerrar sesión */}
-            <div className="hero-foot">
-              <div className="section">
-              <div className="container is-fullwidth">
-                <Link href="/" className="button is-light">
-                  <strong>Cerrar sesión</strong>
-                </Link>
-              </div>
-              </div>
+                {/* Botón de cerrar sesión */}
+                <div className="hero-foot">
+                  <div className="section">
+                    <div className="container">
+                      <Link href="/" className="button is-light">
+                        <strong>Cerrar sesión</strong>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </section>
             </div>
-            
-          </section>
+            <div className="column"></div>
+          </div>
         </div>
         <div className='column has-background-white'>
           
