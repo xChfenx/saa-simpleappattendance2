@@ -3,8 +3,9 @@ import Link from 'next/link';
 
 export default function CreateUserForm(){
   return (
-    <div className="section">
-      <div className="container is-max-tablet has-background-white">
+    <div className="section has-background-white">
+      <section className='section'></section>
+      <div className="container is-max-tablet">
         {/* Títulos y subtítulos */}
         <div className="block">
           <div className="columns">
@@ -35,7 +36,7 @@ export default function CreateUserForm(){
               <div className="control">
                 <div className="select">
                   <select>
-                      <option>Usuario común</option>
+                      <option>Empleado</option>
                       <option>Administrador</option>
                   </select>
                   </div>
