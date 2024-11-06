@@ -34,7 +34,7 @@ export default async function Dashboard(){
             <div className="hero-body">
               <div className="container">
                   <div className="block">
-                    <Link href="/dashboard/create" className="button">Crear usuario</Link>
+                    <Link href="/dashboard/create" className="button">Enrolar usuario</Link>
                   </div>
               </div>
             </div>
