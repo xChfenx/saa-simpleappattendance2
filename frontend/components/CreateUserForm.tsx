@@ -1,7 +1,25 @@
 import 'bulma/css/bulma.min.css';
+import Form from 'next/form';
 import Link from 'next/link';
+import { FormEvent } from 'react';
 
 export default function CreateUserForm(){
+
+  async function onSubmit(formdata: FormData){
+    'use server';
+    // const formData = new FormData(event.currentTarget);
+    const response = await fetch('http://localhost:3000/api/users', {
+      method: 'POST',
+      body: formdata,
+    });
+
+    // Manejar la respuesta
+    const data = await response.json();
+    // console.log(formdata);
+    console.log(data);
+  }
+
+
   return (
     <div className="section has-background-white">
       <section className='section'></section>
@@ -18,26 +36,26 @@ export default function CreateUserForm(){
           <h4 className="subtitle is-4">Detalles de usuario</h4>
         </div>
       
-        <form action="" className='has-background-white'>
+        <form action={onSubmit} className='has-background-white'>
           {/* RUT y Roles */}
           <div className="columns">
             <div className="column">
               <div className="field">
-                <label className="label">RUT *</label>
+                <label className="label" htmlFor="input_rut">RUT *</label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="" />
+                  <input id="input_rut" name="rut" className="input" type="text" placeholder="12.345.678-9" />
                 </div>
               </div>
             </div>
 
             <div className="column">
               <div className="field">
-              <label className="label">Rol de usuario *</label>
+              <label className="label" htmlFor="select_rol">Rol de usuario *</label>
               <div className="control">
                 <div className="select">
-                  <select>
-                      <option>Empleado</option>
-                      <option>Administrador</option>
+                  <select id="select_rol" name="rol">
+                      <option value="empleado">Empleado</option>
+                      <option value="administrador">Administrador</option>
                   </select>
                   </div>
                 </div>
@@ -49,18 +67,18 @@ export default function CreateUserForm(){
           <div className="columns">
             <div className="column">
               <div className="field">
-                <label className="label">Nombres * </label>
+                <label className="label" htmlFor='input_nombres'>Nombres * </label>
                 <div className="control">
-                    <input className="input" type="text" placeholder="" />
+                    <input id="input_nombres" name="nombres" className="input" type="text" placeholder="María Fernanda" />
                 </div>
               </div>
             </div>
 
             <div className="column">
                 <div className="field">
-                <label className="label">Apellidos * </label>
+                <label className="label" htmlFor="input_apellidos">Apellidos * </label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="" />
+                  <input id="input_apellidos" name="apellidos" className="input" type="text" placeholder="González Silva" />
                 </div>
               </div>
             </div>
@@ -70,17 +88,17 @@ export default function CreateUserForm(){
           <div className="columns">
             <div className="column">
               <div className="field">
-                <label className="label">Correo * </label>
+                <label className="label" htmlFor="input_correo">Correo * </label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="" />
+                  <input id="input_correo"  name="correo" className="input" type="text" placeholder="maria@correo.com" />
                 </div>
               </div>
             </div>
             <div className="column">
               <div className="field">
-                <label className="label">Sueldo * </label>
+                <label className="label" htmlFor="input_sueldo">Sueldo * </label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="" />
+                  <input id="input_sueldo" name="sueldo" className="input" type="text" placeholder="100000" />
                 </div>
               </div>
             </div>
@@ -90,17 +108,17 @@ export default function CreateUserForm(){
           <div className="columns">
             <div className="column">
               <div className="field">
-                <label className="label">Cargo * </label>
+                <label className="label" htmlFor="input_cargo">Cargo * </label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="" />
+                  <input id="input_cargo" name="cargo" className="input" type="text" placeholder="Analista" />
                 </div>
               </div>
             </div>
             <div className="column">
               <div className="field">
-                <label className="label">Área * </label>
+                <label className="label" htmlFor="input_area">Área * </label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="" />
+                  <input id="input_area" name="area" className="input" type="text" placeholder="Marketing" />
                 </div>
               </div>
             </div>
@@ -110,9 +128,9 @@ export default function CreateUserForm(){
           <div className="columns">
             <div className="column">
               <div className="field">
-                <label className="label">Empresa * </label>
+                <label className="label" htmlFor="input_empresa">Empresa * </label>
                 <div className="control">
-                  <input className="input" type="text" placeholder="" />
+                  <input id="input_empresa" name="empresa" className="input" type="text" placeholder="Empresa S.A." />
                 </div>
               </div>
             </div>
@@ -121,7 +139,7 @@ export default function CreateUserForm(){
           {/* Botones */}
           <div className="field is-grouped">
             <div className="control">
-              <button className="button is-link">Enrolar usuario</button>
+              <button className="button is-link" type='submit'>Enrolar usuario</button>
             </div>
             <div className="control">
               <Link href="/dashboard" className="button is-link is-light" aria-label="delete">Cancelar</Link>
