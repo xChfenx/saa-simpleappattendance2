@@ -4,23 +4,22 @@ const createUserScheme = v.object(
   {
     rut: v.pipe(
       v.string(),
-      v.minLength(5),
-      v.maxLength(20),
+      v.minLength(12),
+      v.maxLength(12),
     ),
     nombres: v.pipe(
       v.string(),
       v.minLength(5),
-      v.maxLength(20),
+      v.maxLength(40),
     ),
     apellidos: v.pipe(
       v.string(),
       v.minLength(5),
-      v.maxLength(20),
+      v.maxLength(40),
     ),
     correo: v.pipe(
       v.string(),
-      v.minLength(5),
-      v.maxLength(20),
+      v.email(),
     ),
     clave: v.pipe(
       v.string(),
@@ -35,7 +34,7 @@ const createUserScheme = v.object(
     cargo: v.pipe(
       v.string(),
       v.minLength(5),
-      v.maxLength(20),
+      v.maxLength(40),
     ),
     tipoHorario: v.pipe(
       v.string(),
@@ -50,7 +49,7 @@ const createUserScheme = v.object(
     qrCode: v.pipe(
       v.string(),
       v.minLength(5),
-      v.maxLength(20),
+      v.maxLength(40),
     ),
     pin: v.pipe(
       v.number(),
