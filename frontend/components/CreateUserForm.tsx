@@ -8,6 +8,8 @@ export default function CreateUserForm(){
   async function onSubmit(formdata: FormData){
     'use server';
     // const formData = new FormData(event.currentTarget);
+    
+
     const response = await fetch('http://localhost:3000/api/users', {
       method: 'POST',
       body: formdata,
@@ -16,7 +18,14 @@ export default function CreateUserForm(){
     // Manejar la respuesta
     const data = await response.json();
     // console.log(formdata);
-    console.log(data);
+    formdata.append('clave', 'miclave');
+    formdata.append('pin', '1234');
+
+    for(const key of formdata.keys()){
+      console.log(`${key} : ${formdata.get(key)}`);
+    }
+
+
   }
 
 
@@ -54,8 +63,8 @@ export default function CreateUserForm(){
                 <div className="control">
                   <div className="select">
                     <select id="select_rol" name="rol">
-                        <option value="empleado">Empleado</option>
-                        <option value="administrador">Administrador</option>
+                        <option value="Empleado">Empleado</option>
+                        <option value="Administrador">Administrador</option>
                     </select>
                   </div>
                 </div>
@@ -142,9 +151,9 @@ export default function CreateUserForm(){
                 <div className="control">
                   <div className="select">
                     <select id="select_turno" name="turno">
-                        <option value="manana">Mañana</option>
-                        <option value="tarde">Tarde</option>
-                        <option value="noche">Noche</option>
+                        <option value="Mañana">Mañana</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noche">Noche</option>
                     </select>
                   </div>
                 </div>
