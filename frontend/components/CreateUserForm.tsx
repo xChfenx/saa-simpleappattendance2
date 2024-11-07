@@ -50,13 +50,13 @@ export default function CreateUserForm(){
 
             <div className="column">
               <div className="field">
-              <label className="label" htmlFor="select_rol">Rol de usuario *</label>
-              <div className="control">
-                <div className="select">
-                  <select id="select_rol" name="rol">
-                      <option value="empleado">Empleado</option>
-                      <option value="administrador">Administrador</option>
-                  </select>
+                <label className="label" htmlFor="select_rol">Rol de usuario *</label>
+                <div className="control">
+                  <div className="select">
+                    <select id="select_rol" name="rol">
+                        <option value="empleado">Empleado</option>
+                        <option value="administrador">Administrador</option>
+                    </select>
                   </div>
                 </div>
               </div>
@@ -131,6 +131,22 @@ export default function CreateUserForm(){
                 <label className="label" htmlFor="input_empresa">Empresa * </label>
                 <div className="control">
                   <input id="input_empresa" name="empresa" className="input" type="text" placeholder="Empresa S.A." />
+                </div>
+              </div>
+            </div>
+
+            {/* Tipo horario */}
+            <div className="column">
+              <div className="field">
+                <label className="label" htmlFor="select_turno">Turno *</label>
+                <div className="control">
+                  <div className="select">
+                    <select id="select_turno" name="turno">
+                        <option value="manana">Mañana</option>
+                        <option value="tarde">Tarde</option>
+                        <option value="noche">Noche</option>
+                    </select>
+                  </div>
                 </div>
               </div>
             </div>
