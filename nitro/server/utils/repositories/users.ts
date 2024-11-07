@@ -6,9 +6,24 @@ export async function listUsers(){
 }
 
 export async function createUser(user: FormCreateUser){
-  return client.user.create({
-    data: user,
-  });
+  
+  try {
+    await client.user.create({
+      data: user,
+    });
+  }
+
+  catch(error){
+    if(error instanceof PrismaClientKnownRequestError){
+      if(error.code === 'P2002'){
+        return false;
+      }
+    }
+
+    throw error;
+  }
+
+  return true;
 }
 
 export async function deleteUser(rut: string | undefined){
