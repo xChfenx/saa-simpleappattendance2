@@ -20,8 +20,8 @@ model User {
   cargo       String
   turno       String
   empresa     String
-  qrCode      String
-  pin         Int
+  qrCode      String?
+  pin         String
   asistencia  Asistencia[]
 }
 
