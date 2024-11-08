@@ -31,6 +31,7 @@ model Asistencia {
   id            Int      @id @default(autoincrement())
   horaEntrada   DateTime
   horaSalida    DateTime
+  fecha         DateTime
   usuario       Usuario     @relation(fields: [usuarioRut], references: [rut], onDelete: Cascade, onUpdate: Cascade)
   usuarioRut    String
 }
