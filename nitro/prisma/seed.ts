@@ -96,7 +96,7 @@ const client = new PrismaClient();
 
 (async () => {
   try {
-    await client.user.create({
+    await client.usuario.create({
       data: {
         rut: "18.234.567-8",
         nombres: "María Fernanda",
@@ -108,15 +108,7 @@ const client = new PrismaClient();
         turno: "Tarde",
         empresa: "InnovaTech SpA",
         qrCode: "https://innova.tech/qr/18234567-8",
-        pin: 1234,
-        asistencia: {
-          create: [
-            {
-              horaEntrada: "2024-11-07T08:00:00Z",
-              horaSalida: "2024-11-07T16:00:00Z",
-            },
-          ],
-        },
+        pin: "1234"
       },
     });
 

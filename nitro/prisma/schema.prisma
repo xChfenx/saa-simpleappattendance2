@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
+model Usuario {
   rut         String       @id
   nombres     String
   apellidos   String
@@ -26,9 +26,9 @@ model User {
 }
 
 model Asistencia {
-  id          Int      @id @default(autoincrement())
-  horaEntrada DateTime
-  horaSalida  DateTime
-  userRut     String
-  user        User     @relation(fields: [userRut], references: [rut], onDelete: Cascade, onUpdate: Cascade)
+  id            Int      @id @default(autoincrement())
+  horaEntrada   DateTime
+  horaSalida    DateTime
+  usuario       Usuario     @relation(fields: [usuarioRut], references: [rut], onDelete: Cascade, onUpdate: Cascade)
+  usuarioRut    String
 }

@@ -2,13 +2,13 @@ import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { FormCreateUser } from "./schemes/User";
 
 export async function listUsers(){
-	return client.user.findMany();
+	return client.usuario.findMany();
 }
 
 export async function createUser(user: FormCreateUser){
   
   try {
-    await client.user.create({
+    await client.usuario.create({
       data: user,
     });
   }
@@ -28,7 +28,7 @@ export async function createUser(user: FormCreateUser){
 
 export async function deleteUser(rut: string | undefined){
   try {
-    await client.user.delete({
+    await client.usuario.delete({
       where: {
         rut: rut
       }
