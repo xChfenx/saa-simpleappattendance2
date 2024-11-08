@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 const client = new PrismaClient();
-
+/*
 (
   async () => {
   try{
@@ -92,3 +92,42 @@ const client = new PrismaClient();
   }
   }
 )();
+*/
+
+(async () => {
+  try {
+    await client.user.create({
+      data: {
+        rut: "18.234.567-8",
+        nombres: "María Fernanda",
+        apellidos: "González Silva",
+        correo: "maria.gonzalez@gmail.com",
+        clave: "password123",
+        area: "Marketing",
+        cargo: "Analista de Marketing Digital",
+        tipoHorario: "Flex",
+        empresa: "InnovaTech SpA",
+        qrCode: "https://innova.tech/qr/18234567-8",
+        pin: 1234,
+        asistencia: {
+          create: [
+            {
+              horaEntrada: "2024-11-07T08:00:00Z",
+              horaSalida: "2024-11-07T16:00:00Z",
+            },
+          ],
+        },
+      },
+    });
+
+    console.log("Exito");
+  } catch (error) {
+    if (error instanceof PrismaClientKnownRequestError) {
+      if (error.code === "P2002") {
+        console.error("USER ALREADY EXISTS!", error.message);
+      }
+    }
+  } finally {
+    await client.$disconnect();
+  }
+})();
