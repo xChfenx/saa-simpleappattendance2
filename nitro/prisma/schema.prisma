@@ -30,5 +30,5 @@ model Asistencia {
   horaEntrada DateTime
   horaSalida  DateTime
   userRut     String
-  user        User     @relation(fields: [userRut], references: [rut])
+  user        User     @relation(fields: [userRut], references: [rut], onDelete: Cascade, onUpdate: Cascade)
 }
