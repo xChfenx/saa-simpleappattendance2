@@ -23,6 +23,8 @@ model Usuario {
   qrCode      String?
   pin         String
   asistencia  Asistencia[]
+  rol         Rol @relation(fields: [rolId], references: [id])
+  rolId       Int
 }
 
 model Asistencia {
@@ -31,4 +33,10 @@ model Asistencia {
   horaSalida    DateTime
   usuario       Usuario     @relation(fields: [usuarioRut], references: [rut], onDelete: Cascade, onUpdate: Cascade)
   usuarioRut    String
+}
+
+model Rol {
+  id        Int     @id @default(autoincrement())
+  Nombre    String
+  usuarios  Usuario[]
 }
