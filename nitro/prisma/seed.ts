@@ -105,7 +105,7 @@ const client = new PrismaClient();
         clave: "password123",
         area: "Marketing",
         cargo: "Analista de Marketing Digital",
-        tipoHorario: "Flex",
+        turno: "Tarde",
         empresa: "InnovaTech SpA",
         qrCode: "https://innova.tech/qr/18234567-8",
         pin: 1234,

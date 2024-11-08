@@ -5,7 +5,7 @@ enum Rol {
   Administrador = 'Administrador',
 }
 
-enum TipoHorario {
+enum Turno {
   Mañana = 'Mañana',
   Tarde = 'Tarde',
   Noche = 'Noche',
@@ -39,10 +39,7 @@ const createUserScheme = v.object(
     ),
 
     sueldo: v.optional(
-      v.pipe(
-        v.number(),
-        v.integer(),
-      )
+        v.string(),
     ),
 
     cargo: v.pipe(
@@ -63,7 +60,7 @@ const createUserScheme = v.object(
       v.maxLength(20),
     ),
 
-    tipoHorario: v.enum(TipoHorario),
+    turno: v.enum(Turno),
 
     qrCode: v.optional(
       v.pipe(
@@ -80,8 +77,8 @@ const createUserScheme = v.object(
     ),
     
     pin: v.pipe(
-      v.number(),
-      v.integer(),
+      v.string(),
+      v.regex(/^\d\d\d\d$/)
     )
   }
 );

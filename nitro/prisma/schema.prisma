@@ -18,7 +18,7 @@ model User {
   clave       String
   area        String
   cargo       String
-  tipoHorario String
+  turno       String
   empresa     String
   qrCode      String
   pin         Int
