@@ -11,15 +11,24 @@ datasource db {
 }
 
 model User {
-  rut           String  @id
-  nombres       String
-  apellidos     String
-  correo        String
-  clave         String
-  area          String
-  cargo         String
-  tipoHorario   String
-  empresa       String
-  qrCode        String
-  pin           Int
+  rut         String       @id
+  nombres     String
+  apellidos   String
+  correo      String
+  clave       String
+  area        String
+  cargo       String
+  tipoHorario String
+  empresa     String
+  qrCode      String
+  pin         Int
+  asistencia  Asistencia[]
+}
+
+model Asistencia {
+  id          Int      @id @default(autoincrement())
+  horaEntrada DateTime
+  horaSalida  DateTime
+  userRut     String
+  user        User     @relation(fields: [userRut], references: [rut])
 }
