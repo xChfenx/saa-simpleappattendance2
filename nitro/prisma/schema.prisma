@@ -23,6 +23,7 @@ model Usuario {
   empresa     String
   qrCode      String?
   pin         String
+  sueldo      Int
   asistencia  Asistencia[]
   rol         Rol @relation(fields: [rolId], references: [id])
   rolId       Int

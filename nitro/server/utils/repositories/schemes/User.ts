@@ -36,9 +36,11 @@ const createUserScheme = v.object(
       v.email(),
     ),
 
-    sueldo: v.optional(
-        v.string(),
-    ),
+    sueldo: v.pipe(
+        v.number(),
+        v.minValue(0),
+        v.maxValue(5000000)
+      ),
 
     cargo: v.pipe(
       v.string(),
