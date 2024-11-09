@@ -56,7 +56,7 @@ export default function CreateUserForm(){
               <div className="field">
                 <label className="label" htmlFor="input_rut">RUT *</label>
                 <div className="control">
-                  <input id="input_rut" name="rut" className="input" type="text" placeholder="12.345.678-9" />
+                  <input id="input_rut" name="rut" className="input" type="text" placeholder="12.345.678-9" required/>
                 </div>
               </div>
             </div>
@@ -82,7 +82,7 @@ export default function CreateUserForm(){
               <div className="field">
                 <label className="label" htmlFor='input_nombres'>Nombres * </label>
                 <div className="control">
-                    <input id="input_nombres" name="nombres" className="input" type="text" placeholder="María Fernanda" />
+                    <input id="input_nombres" name="nombres" className="input" type="text" placeholder="María Fernanda" required/>
                 </div>
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function CreateUserForm(){
                 <div className="field">
                 <label className="label" htmlFor="input_apellidos">Apellidos * </label>
                 <div className="control">
-                  <input id="input_apellidos" name="apellidos" className="input" type="text" placeholder="González Silva" />
+                  <input id="input_apellidos" name="apellidos" className="input" type="text" placeholder="González Silva" required/>
                 </div>
               </div>
             </div>
@@ -103,7 +103,7 @@ export default function CreateUserForm(){
               <div className="field">
                 <label className="label" htmlFor="input_correo">Correo * </label>
                 <div className="control">
-                  <input id="input_correo"  name="correo" className="input" type="text" placeholder="maria@correo.com" />
+                  <input id="input_correo"  name="correo" className="input" type="text" placeholder="maria@correo.com" required/>
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default function CreateUserForm(){
               <div className="field">
                 <label className="label" htmlFor="input_sueldo">Sueldo * </label>
                 <div className="control">
-                  <input id="input_sueldo" name="sueldo" className="input" type="text" placeholder="100000" />
+                  <input id="input_sueldo" name="sueldo" className="input" type="number" placeholder="100000" required/>
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@ export default function CreateUserForm(){
               <div className="field">
                 <label className="label" htmlFor="input_cargo">Cargo * </label>
                 <div className="control">
-                  <input id="input_cargo" name="cargo" className="input" type="text" placeholder="Analista" />
+                  <input id="input_cargo" name="cargo" className="input" type="text" placeholder="Analista" required/>
                 </div>
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function CreateUserForm(){
               <div className="field">
                 <label className="label" htmlFor="input_area">Área * </label>
                 <div className="control">
-                  <input id="input_area" name="area" className="input" type="text" placeholder="Marketing" />
+                  <input id="input_area" name="area" className="input" type="text" placeholder="Marketing" required/>
                 </div>
               </div>
             </div>
@@ -143,7 +143,7 @@ export default function CreateUserForm(){
               <div className="field">
                 <label className="label" htmlFor="input_empresa">Empresa * </label>
                 <div className="control">
-                  <input id="input_empresa" name="empresa" className="input" type="text" placeholder="Empresa S.A." />
+                  <input id="input_empresa" name="empresa" className="input" type="text" placeholder="Empresa S.A." required/>
                 </div>
               </div>
             </div>
