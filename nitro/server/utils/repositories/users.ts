@@ -1,12 +1,13 @@
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { FormCreateUser } from "./schemes/User";
+import { Rol } from "@prisma/client";
 
 export async function listUsers(){
 	return client.usuario.findMany();
 }
 
 export async function createUser(user: FormCreateUser){
-  
+
   try {
     await client.usuario.create({
       data: user,

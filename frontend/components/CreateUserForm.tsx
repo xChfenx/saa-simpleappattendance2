@@ -1,31 +1,35 @@
+'use client';
 import 'bulma/css/bulma.min.css';
-import Form from 'next/form';
 import Link from 'next/link';
 import { FormEvent } from 'react';
 
 export default function CreateUserForm(){
 
-  async function onSubmit(formdata: FormData){
-    'use server';
-    // const formData = new FormData(event.currentTarget);
-    
+  async function onSubmit(event: FormEvent<HTMLFormElement>){
+    event.preventDefault();
 
+    const formData = new FormData(event.currentTarget);
+
+    // Incrustar la clave y pin generados automáticamente
+    // Agregar seguridad a la brevedad
+    formData.append('clave', 'miclave');
+    formData.append('pin', '1234');
+
+    // Convertir rol a number
+    const pre_body = Object.fromEntries(formData);
+    pre_body.rolId = +pre_body.rolId;
+    pre_body.sueldo = +pre_body.sueldo;
+
+    // Convertir formdata a JSON
+    const body = JSON.stringify(pre_body);
+    
     const response = await fetch('http://localhost:3000/api/users', {
       method: 'POST',
-      body: formdata,
+      body: body,
+      headers:{
+        'Content-Type': 'application/json'
+      }
     });
-
-    // Manejar la respuesta
-    const data = await response.json();
-    // console.log(formdata);
-    formdata.append('clave', 'miclave');
-    formdata.append('pin', '1234');
-
-    for(const key of formdata.keys()){
-      console.log(`${key} : ${formdata.get(key)}`);
-    }
-
-
   }
 
 
@@ -45,7 +49,7 @@ export default function CreateUserForm(){
           <h4 className="subtitle is-4">Detalles de usuario</h4>
         </div>
       
-        <form action={onSubmit} className='has-background-white'>
+        <form onSubmit={onSubmit} className='has-background-white'>
           {/* RUT y Roles */}
           <div className="columns">
             <div className="column">
@@ -62,9 +66,9 @@ export default function CreateUserForm(){
                 <label className="label" htmlFor="select_rol">Rol de usuario *</label>
                 <div className="control">
                   <div className="select">
-                    <select id="select_rol" name="rol">
-                        <option value="Empleado">Empleado</option>
-                        <option value="Administrador">Administrador</option>
+                    <select id="select_rol" name="rolId">
+                        <option value="2">Empleado</option>
+                        <option value="1">Administrador</option>
                     </select>
                   </div>
                 </div>

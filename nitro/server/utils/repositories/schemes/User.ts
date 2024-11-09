@@ -1,8 +1,8 @@
 import * as v from 'valibot';
 
 enum Rol {
-  Empleado = 'Empleado',
-  Administrador = 'Administrador',
+  Administrador = 1,
+  Empleado = 2,
 }
 
 enum Turno {
@@ -18,8 +18,6 @@ const createUserScheme = v.object(
       v.minLength(12),
       v.maxLength(12),
     ),
-
-    rol: v.enum(Rol),
 
     nombres: v.pipe(
       v.string(),
@@ -61,6 +59,7 @@ const createUserScheme = v.object(
     ),
 
     turno: v.enum(Turno),
+    rolId: v.enum(Rol),
 
     qrCode: v.optional(
       v.pipe(

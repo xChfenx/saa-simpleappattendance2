@@ -39,6 +39,6 @@ model Asistencia {
 
 model Rol {
   id        Int     @id @default(autoincrement())
-  Nombre    String
+  nombre    String
   usuarios  Usuario[]
 }
