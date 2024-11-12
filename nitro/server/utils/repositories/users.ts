@@ -70,3 +70,23 @@ export async function findUserByEmailAndPassword(email: string, password: string
 
   return true;
 }
+
+export async function findUserByRUT(rut: string | undefined){
+  try {
+    return await client.usuario.findUniqueOrThrow({
+      where: {
+        rut: rut,
+      }
+    });
+  }
+
+  catch(error){
+    if(error instanceof PrismaClientKnownRequestError){
+      if(error.code === 'P2025'){
+        return false;
+      }
+    }
+
+    throw error;
+  }
+}
