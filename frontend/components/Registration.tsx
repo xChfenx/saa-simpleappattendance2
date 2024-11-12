@@ -1,16 +1,18 @@
-import styles from '@/styles/registration.module.css';
+import 'bulma/css/bulma.min.css';
 
 type RegistrationProp<P = unknown> = P & { children: React.ReactNode, title: string, };
 
 export default function Registration({children, title }: RegistrationProp){
   return (
-    <div className={styles.registration_body}>
-      <header className={styles.registration_header}>
-        <p>{title}</p>
-      </header>
-      <main className={styles.registration_main}>
+    <article className="message is-large">
+      <div className="message-header">
+        <div className="container">
+          <p className='has-text-centered'>{title}</p>
+        </div>
+      </div>
+      <div className="message-body">
         {children}
-      </main>
-    </div>
+      </div>
+    </article>
   );
 }
