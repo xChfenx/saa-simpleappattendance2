@@ -48,3 +48,26 @@ export async function deleteUser(rut: string | undefined){
 
   return true;
 }
+
+export async function findUserByEmailAndPassword(email: string, password: string){
+  try {
+    await client.usuario.findFirstOrThrow({
+      where: {
+        correo: email,
+        clave: password,
+      }
+    });
+  }
+
+  catch(error){
+    if(error instanceof PrismaClientKnownRequestError){
+      if(error.code === 'P2025'){
+        return false;
+      }
+    }
+
+    throw error;
+  }
+
+  return true;
+}

@@ -84,8 +84,24 @@ const createUserScheme = v.object(
   }
 );
 
+const loginScheme = v.object(
+  {
+    email: v.pipe(
+      v.string(),
+      v.email()
+    ),
+
+    password: v.pipe(
+      v.string(),
+      v.minLength(5),
+      v.maxLength(20),
+    )
+  }
+);
+
 
 export const parserUser = v.parser(createUserScheme);
+export const parserLogin = v.parser(loginScheme);
 
 // Custom Types
 export type FormCreateUser = v.InferInput<typeof createUserScheme>;

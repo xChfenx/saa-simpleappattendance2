@@ -1,53 +1,79 @@
-import Form from "next/form";
 import Registration from "./Registration";
-import { login } from "@/app/utils/login";
 import SeparatorLine from "./SeparatorLine";
+import { FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Login({onSwitchMode} : any){
+  const router = useRouter();
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>){
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+
+    const email = formData.get('correo');
+    const password = formData.get('contrasena');
+
+    const response = await fetch('http://localhost:3000/api/auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+  
+    });
+  
+    if(response.ok){
+      router.push('/dashboard');
+    }
+    
+    else {
+      return;
+    }
+  }
+
   return (
-    <Form action={async (formData) => {
-      await login(formData);
-      }}>
+    
       <Registration title="Ingresar">
-
-        {/* Correo */}
-        <div className="field">
-          <label className="label">Correo</label>
-          <div className="control">
-            <input className="input" type="email" placeholder="maria.fernanda@gmail.com" required/>
+        <form onSubmit={handleSubmit}>
+          {/* Correo */}
+          <div className="field">
+            <label className="label">Correo</label>
+            <div className="control">
+              <input className="input" type="email" name="correo" placeholder="maria.fernanda@gmail.com" required/>
+            </div>
           </div>
-        </div>
 
-        {/* PIN */}
-        <div className="field">
-          <label className="label">Contraseña</label>
-          <div className="control">
-            <input className="input" type="password" placeholder="****" required/>
+          {/* PIN */}
+          <div className="field">
+            <label className="label">Contraseña</label>
+            <div className="control">
+              <input className="input" type="password" name="contrasena" placeholder="****" required/>
+            </div>
           </div>
-        </div>
 
-        <SeparatorLine />
+          <SeparatorLine />
 
-        {/* Botones */}
-        <div className="columns">
-          <div className="column">
-            <div className="field">
-              <div className="control">
-                {/* Iniciar sesión */}
-                <button className="button is-dark is-fullwidth" type="submit">Iniciar sesión</button>
+          {/* Botones */}
+          <div className="columns">
+            <div className="column">
+              <div className="field">
+                <div className="control">
+                  {/* Iniciar sesión */}
+                  <button className="button is-dark is-fullwidth" type="submit">Iniciar sesión</button>
+                </div>
+              </div>
+            </div>
+            <div className="column">
+              <div className="field">
+                <div className="control">
+                  {/* Cancelar */}
+                  <button className="button is-fullwidth" onClick={onSwitchMode}>Cancelar</button>
+                </div>
               </div>
             </div>
           </div>
-          <div className="column">
-            <div className="field">
-              <div className="control">
-                {/* Cancelar */}
-                <button className="button is-fullwidth" onClick={onSwitchMode}>Cancelar</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        </form>
       </Registration>
-    </Form>
   );
 }
