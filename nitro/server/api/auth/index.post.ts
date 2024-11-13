@@ -13,7 +13,5 @@ export default eventHandler(async (event) => {
     });
   }
 
-  return {
-    "success": true,
-  }
+  return foundUser;
 });

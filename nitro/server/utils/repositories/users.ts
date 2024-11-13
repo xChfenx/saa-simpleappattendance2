@@ -50,7 +50,7 @@ export async function deleteUser(rut: string | undefined){
 
 export async function findUserByEmailAndPassword(email: string, password: string){
   try {
-    await client.usuario.findFirstOrThrow({
+    return await client.usuario.findFirstOrThrow({
       where: {
         correo: email,
         clave: password,
@@ -67,8 +67,6 @@ export async function findUserByEmailAndPassword(email: string, password: string
 
     throw error;
   }
-
-  return true;
 }
 
 export async function findUserByRUT(rut: string | undefined){
