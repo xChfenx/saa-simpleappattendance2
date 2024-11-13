@@ -34,6 +34,8 @@ const createUserScheme = v.object(
     correo: v.pipe(
       v.string(),
       v.email(),
+      v.minLength(10),
+      v.maxLength(50)
     ),
 
     sueldo: v.pipe(
@@ -51,13 +53,13 @@ const createUserScheme = v.object(
     area: v.pipe(
       v.string(),
       v.minLength(5),
-      v.maxLength(15),
+      v.maxLength(40),
     ),
 
     empresa: v.pipe(
       v.string(),
       v.minLength(5),
-      v.maxLength(20),
+      v.maxLength(40),
     ),
 
     turno: v.enum(Turno),
