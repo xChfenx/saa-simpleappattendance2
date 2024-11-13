@@ -13,6 +13,8 @@
 # testing
 /coverage
 /app/test
+/test
+jest.config.js
 
 # next.js
 /.next/
@@ -39,3 +41,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+certificates
