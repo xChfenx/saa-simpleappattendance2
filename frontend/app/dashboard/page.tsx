@@ -6,6 +6,7 @@ import { CalendarIcon } from '@/components/icons/CalendarIcon';
 import { SheetIcon } from '@/components/icons/SheetIcon';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import StrongUserDetails from '@/components/StrongUserDetails';
+import Logout from '@/components/Logout';
 
 export default async function Dashboard(){
 
@@ -40,15 +41,7 @@ export default async function Dashboard(){
                 </div>
 
                 {/* Botón de cerrar sesión */}
-                <div className="hero-foot">
-                  <div className="section">
-                    <div className="container">
-                      <Link href="/" className="button is-light">
-                        <strong>Cerrar sesión</strong>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
+                <Logout />
               </section>
             </div>
             <div className="column"></div>
