@@ -21,3 +21,25 @@ export async function createAttendance(attendance: FormCreateAttendance){
   
     return true;
   }
+
+export async function listAllAttendances(rut: string){
+
+  try {
+    return await client.usuario.findUniqueOrThrow({
+      where: {
+        rut: rut,
+      },
+      select: {
+        asistencia: true,
+      }
+    });
+
+  }
+  catch (error){
+    if (error instanceof PrismaClientKnownRequestError) {
+      if (error.code === "P2025") {
+        console.error(`No se encontraron coincidencias para el rut: ${rut}\n`, error.message);
+      }
+    }
+  }
+}
