@@ -21,7 +21,7 @@ export default async function Dashboard(){
         <div className='column is-2'>
           <div className="columns has-background-white">
             <div className="column is-10">
-              <section className={`hero is-fullheight-with-navbar ${dashboard_styles.hero}`}>
+              <section className={`hero is-fullheight-with-navbar has-background-dark`}>
                 <div className="hero-body">
                   <div className="container">
                       <div className="block">
