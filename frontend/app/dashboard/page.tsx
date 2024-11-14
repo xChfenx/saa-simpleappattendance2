@@ -1,33 +1,23 @@
 import 'bulma/css/bulma.min.css';
 import dashboard_styles from '@/app/dashboard/page.module.css';
-import { fetchUsers } from '../utils/data';
 import Link from 'next/link';
 import { CalendarIcon } from '@/components/icons/CalendarIcon';
 import { SheetIcon } from '@/components/icons/SheetIcon';
 import WelcomeMessage from '@/components/WelcomeMessage';
 import StrongUserDetails from '@/components/StrongUserDetails';
 import Logout from '@/components/Logout';
+import TableUsers from '@/components/TableUsers';
+import CustomNavbar from '@/components/CustomNavbar';
 
 export default async function Dashboard(){
 
-  const users = await fetchUsers();
-
   return (
     <>
-      <nav className={`navbar ${dashboard_styles.nav}`}>
-        {/* Mensaje de bienvenida */}
-        <WelcomeMessage />
-
-        <div className="navbar-end">
-          <div className="navbar-item">
-            {/* <p className='subtitle has-text-white'>{`${loggedUser.area}`}</p> */}
-            <p className='subtitle has-text-white'>Hola</p>
-          </div>
-        </div>
-      </nav>
+      {/* Mensaje de bienvenida */}
+      <CustomNavbar />
 
       <div className='columns'>
-        {/* Botones de Reportes y Crear usuario */}
+        {/* Panel lateral izquierdo */}
         <div className='column is-2'>
           <div className="columns has-background-white">
             <div className="column is-10">
@@ -77,37 +67,9 @@ export default async function Dashboard(){
               <div className="column is-1"><SheetIcon width="3rem" height="3rem"/></div>
             </div>
 
-          {/* Tabla de usuarios */} 
-          <table className='table is-hoverable is-fullwidth'>
-            <thead>
-              <tr>
-                <th>RUT</th>
-                <th>Nombres</th>
-                <th>Apellidos</th>
-                <th>Correo</th>
-                <th>Área</th>
-                <th>Cargo</th>
-                <th>Turno</th>
-                <th>Empresa</th>
-                <th>Asistencia</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user: any) => (
-              <tr key={user.rut}>
-                <th>{user.rut}</th>
-                <td>{user.nombres}</td>
-                <td>{user.apellidos}</td>
-                <td>{user.correo}</td>
-                <td>{user.area}</td>
-                <td>{user.cargo}</td>
-                <td>{user.turno}</td>
-                <td>{user.empresa}</td>
-                <td>{user.asistencia}</td>
-              </tr>
-              ))}
-            </tbody>
-          </table>
+          {/* Tabla de usuarios */}
+          <TableUsers onShowModal={null}/>
+          
         </div>
       </div>
     </>
