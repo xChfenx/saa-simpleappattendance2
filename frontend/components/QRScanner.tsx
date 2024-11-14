@@ -1,18 +1,19 @@
 'use client';
 import { IDetectedBarcode, Scanner } from "@yudiel/react-qr-scanner";
 
-export default function QRScanner({ width } : {width : string}) {
+interface QRScannerProps {
+  width?: string;
+  onScan: (detectedCodes : IDetectedBarcode[]) => void;
+}
 
-  function onScanSuccess(detectedCodes: IDetectedBarcode[]){
-    console.log(detectedCodes);
-  }
+export default function QRScanner({ width, onScan } : QRScannerProps) {
 
   return (
      <div style={{
       width: width,
      }}>
         <Scanner 
-          onScan={(detectedCodes) => onScanSuccess(detectedCodes)}
+          onScan={(detectedCodes) => onScan(detectedCodes)}
           paused={false}
           formats={[
             'qr_code',
