@@ -4,25 +4,23 @@ import { fetchUsers } from '../utils/data';
 import Link from 'next/link';
 import { CalendarIcon } from '@/components/icons/CalendarIcon';
 import { SheetIcon } from '@/components/icons/SheetIcon';
+import WelcomeMessage from '@/components/WelcomeMessage';
+import StrongUserDetails from '@/components/StrongUserDetails';
 
 export default async function Dashboard(){
 
   const users = await fetchUsers();
-  const user = users[0];
 
   return (
     <>
       <nav className={`navbar ${dashboard_styles.nav}`}>
         {/* Mensaje de bienvenida */}
-        <div className="navbar-item is-expanded">
-          <div className='container has-text-centered'>
-            <p className='title has-text-white'>{`Bienvenido, ${user.nombres}`}</p>
-          </div>
-        </div>
+        <WelcomeMessage />
 
         <div className="navbar-end">
           <div className="navbar-item">
-            <p className='subtitle has-text-white'>{`${user.area}`}</p>
+            {/* <p className='subtitle has-text-white'>{`${loggedUser.area}`}</p> */}
+            <p className='subtitle has-text-white'>Hola</p>
           </div>
         </div>
       </nav>
@@ -80,7 +78,7 @@ export default async function Dashboard(){
             <div className="columns mt-5">
               <div className="column is-6">
                 {/* Nombre de trabajador actual */}
-                <h2 className="subtitle"><strong>{`${user.nombres} ${user.apellidos}`}</strong>{`(${user.rut})`}</h2>
+                <StrongUserDetails />
               </div>
               <div className="column"></div>
               <div className="column is-1"><SheetIcon width="3rem" height="3rem"/></div>
