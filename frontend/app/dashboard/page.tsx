@@ -8,6 +8,7 @@ import StrongUserDetails from '@/components/StrongUserDetails';
 import Logout from '@/components/Logout';
 import TableUsers from '@/components/TableUsers';
 import CustomNavbar from '@/components/CustomNavbar';
+import ShowTableUsers from '@/components/ShowTableUsers';
 
 export default async function Dashboard(){
 
@@ -68,7 +69,7 @@ export default async function Dashboard(){
             </div>
 
           {/* Tabla de usuarios */}
-          <TableUsers onShowModal={null}/>
+          <ShowTableUsers />
           
         </div>
       </div>
