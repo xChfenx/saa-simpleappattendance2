@@ -16,7 +16,7 @@ export default function TableUsers({onShowModal} : {onShowModal: any}){
           <th>Correo</th>
           <th>Área</th>
           <th>Cargo</th>
-          <th>Tipo Horario</th>
+          <th>Turno</th>
           <th>Empresa</th>
         </tr>
       </thead>
@@ -37,7 +37,7 @@ export default function TableUsers({onShowModal} : {onShowModal: any}){
           <td>{user.correo}</td>
           <td>{user.area}</td>
           <td>{user.cargo}</td>
-          <td>{user.tipoHorario}</td>
+          <td>{user.turno}</td>
           <td>{user.empresa}</td>
         </tr>
         ))}
