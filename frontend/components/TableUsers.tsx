@@ -33,10 +33,7 @@ export default function TableUsers({ users, attendance} : {users: User[]; attend
                 refRut.current = user.rut;
                 setSwitchTable(2);
               }} className='button is-light' >
-                <span className="icon-text">
-                  <span className='label is-small'>Ver</span>
-                  <span className='icon is-small'><InfoIcon /></span>
-                </span>
+                Ver
               </button>
             </th>
             <th>{user.rut}</th>
@@ -77,10 +74,7 @@ export default function TableUsers({ users, attendance} : {users: User[]; attend
             <th>
               
               <button onClick={() => setSwitchTable(1)} className='button is-light' >
-                <span className="icon-text">
-                  <span className='label is-small'>Volver</span>
-                  <span className='icon is-small'><InfoIcon /></span>
-                </span>
+                Volver
               </button>
             </th>
             {/* RUT */}
