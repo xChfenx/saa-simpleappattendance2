@@ -24,6 +24,7 @@ export default function Login({onSwitchMode} : any){
     });
   
     if(response.ok){
+      localStorage.user = JSON.stringify(await response.json());
       router.push('/dashboard');
     }
     
