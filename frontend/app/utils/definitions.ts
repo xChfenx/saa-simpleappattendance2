@@ -13,3 +13,11 @@ export type User = {
     sueldo: number;
     rolId: number;
 };
+
+export type Attendance = {
+    id: number;
+    horaEntrada: Date;
+    horaSalida: Date;
+    fecha: Date;
+    usuarioRut: String;
+}
