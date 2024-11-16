@@ -10,5 +10,6 @@ export type User = {
     empresa: string;
     qrCode: string;
     pin: string;
+    sueldo: number;
     rolId: number;
 };
