@@ -1,16 +1,13 @@
 import 'bulma/css/bulma.min.css';
-import dashboard_styles from '@/app/dashboard/page.module.css';
 import Link from 'next/link';
 import { CalendarIcon } from '@/components/icons/CalendarIcon';
 import { SheetIcon } from '@/components/icons/SheetIcon';
-import WelcomeMessage from '@/components/WelcomeMessage';
 import StrongUserDetails from '@/components/StrongUserDetails';
 import Logout from '@/components/Logout';
-import TableUsers from '@/components/TableUsers';
 import CustomNavbar from '@/components/CustomNavbar';
-import ShowTableUsers from '@/components/ShowTableUsers';
+import WrapperTables from '@/components/WrapperTables';
 
-export default async function Dashboard(){
+export default async function Page(){
 
   return (
     <>
@@ -69,7 +66,7 @@ export default async function Dashboard(){
             </div>
 
           {/* Tabla de usuarios */}
-          <ShowTableUsers />
+          <WrapperTables />
           
         </div>
       </div>
