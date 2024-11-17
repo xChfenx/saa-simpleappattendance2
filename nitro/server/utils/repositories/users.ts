@@ -48,12 +48,11 @@ export async function deleteUser(rut: string | undefined){
   return true;
 }
 
-export async function findUserByEmailAndPassword(email: string, password: string){
+export async function findUserByEmail(email: string){
   try {
-    await client.usuario.findFirstOrThrow({
+    return await client.usuario.findUniqueOrThrow({
       where: {
         correo: email,
-        clave: password,
       }
     });
   }
@@ -67,6 +66,24 @@ export async function findUserByEmailAndPassword(email: string, password: string
 
     throw error;
   }
+}
 
-  return true;
+export async function findUserByRUT(rut: string | undefined){
+  try {
+    return await client.usuario.findUniqueOrThrow({
+      where: {
+        rut: rut,
+      }
+    });
+  }
+
+  catch(error){
+    if(error instanceof PrismaClientKnownRequestError){
+      if(error.code === 'P2025'){
+        return false;
+      }
+    }
+
+    throw error;
+  }
 }

@@ -10,12 +10,16 @@
     "test": "jest"
   },
   "dependencies": {
+    "@yudiel/react-qr-scanner": "2.0.8",
+    "bcryptjs": "2.4.3",
     "bulma": "~1.0.2",
+    "export-to-csv": "^1.4.0",
     "next": "~15.0.0",
-    "react": "19.0.0-rc-65a56d0e-20241020",
-    "react-dom": "19.0.0-rc-65a56d0e-20241020"
+    "react": "18",
+    "react-dom": "18"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/jest": "^29.5.14",
     "@types/node": "~20",
     "@types/react": "~18",

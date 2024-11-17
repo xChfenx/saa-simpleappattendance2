@@ -5,7 +5,11 @@ const client = new PrismaClient();
 // Primero se borran todos los registros existentes
 (async () => {
   try {
-    const registrosBorrados = await Promise.all([await client.usuario.deleteMany({}), await client.rol.deleteMany({})]);
+    const registrosBorrados = await Promise.all([
+      await client.usuario.deleteMany({}), 
+      await client.rol.deleteMany({}),
+      await client.asistencia.deleteMany({}),
+    ]);
 
     console.log("Exito borrado: \n", registrosBorrados);
 
@@ -47,7 +51,6 @@ const client = new PrismaClient();
     const asistencia = await client.asistencia.create({
       data:
       {
-        id: 1,
         fecha: new Date(),
         horaEntrada: new Date(),
         horaSalida: new Date(),
