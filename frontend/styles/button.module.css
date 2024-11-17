@@ -1,8 +1,4 @@
 .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: self-end;
   width: 100%;
 }
 

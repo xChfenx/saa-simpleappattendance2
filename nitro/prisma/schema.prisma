@@ -3,6 +3,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["strictUndefinedChecks"]
 }
 
 datasource db {
@@ -10,16 +11,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  rut           String  @id
-  nombres       String
-  apellidos     String
-  correo        String
-  clave         String
-  area          String
-  cargo         String
-  tipoHorario   String
-  empresa       String
-  qrCode        String
-  pin           Int
+model Usuario {
+  rut         String       @id
+  nombres     String
+  apellidos   String
+  correo      String
+  clave       String
+  area        String
+  cargo       String
+  turno       String
+  empresa     String
+  qrCode      String?
+  pin         String
+  sueldo      Int
+  asistencia  Asistencia[]
+  rol         Rol @relation(fields: [rolId], references: [id])
+  rolId       Int
+}
+
+model Asistencia {
+  id            Int      @id @default(autoincrement())
+  horaEntrada   DateTime
+  horaSalida    DateTime
+  fecha         DateTime
+  usuario       Usuario     @relation(fields: [usuarioRut], references: [rut], onDelete: Cascade, onUpdate: Cascade)
+  usuarioRut    String
+}
+
+model Rol {
+  id        Int     @id @default(autoincrement())
+  nombre    String
+  usuarios  Usuario[]
 }

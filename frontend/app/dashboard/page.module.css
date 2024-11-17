@@ -1,3 +1,7 @@
 .nav {
-  background-color: #333333;
+  background-color: var(--black);
+}
+
+.hero {
+  background-color: var(--black);
 }
