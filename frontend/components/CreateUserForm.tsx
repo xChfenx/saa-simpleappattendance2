@@ -1,5 +1,5 @@
 'use client';
-import { getHashedPassword } from '@/app/lib/auth';
+import { getHashedText } from '@/app/lib/auth';
 import 'bulma/css/bulma.min.css';
 import Link from 'next/link';
 import { FormEvent } from 'react';
@@ -12,8 +12,8 @@ export default function CreateUserForm(){
     const formData = new FormData(event.currentTarget);
     // Incrustar la clave y pin generados automáticamente
     // Aquí se puede usar una función que cree claves automáticamente
-    formData.append('clave', getHashedPassword("miclave"));
-    formData.append('pin', '1234');
+    formData.append('clave', getHashedText("miclave"));
+    formData.append('pin', getHashedText("1234"));
 
     // Convertir rol y sueldo a number
     const pre_body  =   Object.fromEntries(formData);

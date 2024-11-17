@@ -81,7 +81,8 @@ const createUserScheme = v.object(
     
     pin: v.pipe(
       v.string(),
-      v.regex(/^\d\d\d\d$/)
+      v.minLength(60),
+      v.maxLength(60)
     )
   }
 );
