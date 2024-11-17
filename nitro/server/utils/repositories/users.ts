@@ -48,12 +48,11 @@ export async function deleteUser(rut: string | undefined){
   return true;
 }
 
-export async function findUserByEmailAndPassword(email: string, password: string){
+export async function findUserByEmail(email: string){
   try {
-    return await client.usuario.findFirstOrThrow({
+    return await client.usuario.findUniqueOrThrow({
       where: {
         correo: email,
-        clave: password,
       }
     });
   }

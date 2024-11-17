@@ -15,7 +15,7 @@ model Usuario {
   rut         String       @id
   nombres     String
   apellidos   String
-  correo      String
+  correo      String       @unique
   clave       String
   area        String
   cargo       String
