@@ -1,8 +1,8 @@
 import bcrypt from "bcryptjs";
 
-export function getHashedPassword(passwordtoHash:string) : string{
+export function getHashedText(textToHash:string) : string{
     
-    return bcrypt.hashSync(passwordtoHash, createSalt());
+    return bcrypt.hashSync(textToHash, createSalt());
 }
 
 export function createSalt() : string{
