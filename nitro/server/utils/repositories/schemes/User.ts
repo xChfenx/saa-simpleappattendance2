@@ -75,8 +75,8 @@ const createUserScheme = v.object(
     
     clave: v.pipe(
       v.string(),
-      v.minLength(5),
-      v.maxLength(20),
+      v.minLength(30),
+      v.maxLength(100),
     ),
     
     pin: v.pipe(
